@@ -1,13 +1,24 @@
 package com.debiansystems.springboot.web.springbootfirstwebapplication.model;
 
+
+
 import java.util.Date;
+
+import javax.validation.constraints.Size;
 
 public class Todo {
     private int id;
     private String user;
+
+    @Size(min = 10, message = "Enter at least 10 Characters...")
     private String desc;
+
     private Date targetDate;
     private boolean isDone;
+
+    public Todo() {
+        super();
+    }
 
     public Todo(int id, String user, String desc, Date targetDate,
                 boolean isDone) {
@@ -91,5 +102,4 @@ public class Todo {
                 "Todo [id=%s, user=%s, desc=%s, targetDate=%s, isDone=%s]", id,
                 user, desc, targetDate, isDone);
     }
-
 }
